@@ -1,0 +1,295 @@
+*{
+    margin: 0;
+}
+
+/*animation*/
+
+@keyframes shake {
+    0%   { transform: translateX(0px);}
+    20%  { transform: translateX(-10px);}
+    40%  { transform: translateX(10px);}
+    60%  { transform: translateX(-10px);}
+    80%  { transform: translateX(10px);}
+    100% { transform: translateX(0px);}
+}
+
+@keyframes appear{
+    from{
+        opacity: 0;
+        scale: 0.5;
+    }
+    to{
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes slide_left{
+    from{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+    background-color: rgba(255, 0, 0, 0.25);
+}
+
+#credential{
+    animation: slide_left 0.5s ease-in-out;
+}
+
+footer{
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0 cover 20%;
+}
+
+/*animation*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+/*wrapper*/
+
+#wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+/*wrapper*/
+
+/*header*/
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #161B22;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    top: 0;
+}
+
+#logo{
+    display: flex;
+    flex-direction: row;
+    font-size: 40px;
+    font-family: 'Winky Rough', cursive;
+    margin: 20px;
+    color: rgb(255, 255, 255);
+}
+
+#weblogo{
+    background: url("https://cdn-icons-png.flaticon.com/512/10799/10799971.png");
+    background-size: contain;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    color: white;
+    margin: 10px;
+}
+
+nav ul{
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    font-family: 'Special Gothic Expanded One', cursive;
+}
+
+ul li{
+    color: #C9D1D9;
+    list-style: none;
+    padding: 10px;
+}
+
+.page:hover{
+    scale: 1.2;
+    transition: 0.4s ease-in-out;
+    background-color: #58A6FF;
+    color: #0D1117;
+    border-radius: 15px;
+}
+
+#contacts{
+    cursor: pointer;
+}
+/*header*/
+
+
+body{ 
+    background-color: #0D1117;
+    color: #C9D1D9;
+}
+
+/*section*/
+
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 60px;
+}
+
+#credential{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #21262D;
+    border-radius: 15px;
+    width: 800px;
+    height: 630px;
+}
+
+#login{
+    font-family: 'Special Gothic Expanded One', cursive;
+    font-size: 50px;
+    font-weight: bold;
+    margin: 30px;
+    margin-bottom: 10px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cred{
+    display: flex;
+    flex-direction: row;
+    font-family: 'Lilita One', cursive;
+    margin: 15px;
+    align-items: center;
+    justify-content: flex-start;
+    width: 500px;
+}
+
+label{
+    border-radius: 10px;
+    text-align: left;
+    align-self: center;
+    padding: 10px;
+    font-size: 20px;
+    width: 200px;
+    font-weight: bold;
+}
+
+input, select {
+    flex: 2;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    font-size: 16px;
+  }
+
+#password_checker{
+    display: flex;
+    flex-direction: row;
+    color: red;
+    font-weight: bold;
+}
+
+#submit{
+    align-self: center;
+    font-size: 30px;
+    font-weight: bold;
+    width: 150px;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: #238636;
+    color: white;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#submit:hover{
+    scale: 1.2;
+    transition: 0.4s ease-in-out;
+    background-color: rgb(4, 146, 42);
+    color: white;
+}
+
+#new{
+    text-decoration: underline;
+    font-family: 'Poetsen One', cursive;
+    font-size: 10px;
+    align-self: center;
+    text-decoration: rgb(51, 51, 169);
+    margin: 10px;
+}
+
+#new:hover{
+    color: rgb(91, 91, 222);
+    scale: 1.2;
+    transition: 0.3s ease-in-out;
+}
+
+/*section-credentials*/
+
+/*footer*/
+
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(46, 53, 62);
+    color: white;
+    border-radius: 15px;
+    margin: 50px;
+}
+
+#made_by{
+    display: flex;
+    flex-direction: row;
+    font-size: 40px;
+    font-family: 'Pacifico', cursive;
+
+}
+
+.founders{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-family: 'Lato',cursive;
+}
+
+.links{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+
+.links img {
+    width: 40px; 
+    height: auto; 
+}
+
+/*footer*/
