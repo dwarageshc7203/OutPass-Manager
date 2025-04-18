@@ -3,20 +3,17 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 session_start();
 
-include 'db_connect.php'; // Ensure this file contains the $conn connection
+include 'db_connect.php';
 
-// Run the ALTER TABLE query to change user_id to BIGINT (only once)
 $sql = "ALTER TABLE outpass_requests MODIFY COLUMN user_id BIGINT UNSIGNED NOT NULL";
-$conn->query($sql); // Don't worry if it fails later; avoid echoing for user
+$conn->query($sql);
 
-// Check if user is logged in
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['username'])) {
     die("❌ User not logged in.");
 }
 
-$user_id = intval($_SESSION['user_id']); // Force integer for safety
+$user_id = intval($_SESSION['user_id']);
 
-// Handle outpass request submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $destination = $_POST['destination'];
     $reason = $_POST['reason'];
@@ -41,7 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit();
 }
 
-// Fetch all outpass requests for the logged-in user
 $stmt = $conn->prepare("SELECT * FROM outpass_requests WHERE user_id = ?");
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
@@ -211,7 +207,11 @@ $result = $stmt->get_result();
               <?php echo $row['status']; ?>
             </td>
             <td>
-              <a href="#" class="download-link" data-outpass='<?php echo json_encode($row); ?>'>Download</a>
+              <?php if (strtolower($row['status']) === 'approved'): ?>
+                <a href="#" class="download-link" data-outpass='<?php echo json_encode($row); ?>'>Download</a>
+              <?php else: ?>
+                -
+              <?php endif; ?>
             </td>
           </tr>
         <?php endwhile; ?>
